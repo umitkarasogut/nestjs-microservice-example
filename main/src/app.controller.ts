@@ -12,7 +12,7 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 
-@Controller()
+@Controller('product')
 export class AppController {
   constructor(
     @Inject('MICROSERVICE')
