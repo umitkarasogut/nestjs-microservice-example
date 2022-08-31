@@ -23,9 +23,9 @@ export class AppController {
   }
 
   @MessagePattern({ cmd: 'product_update' })
-  update(data: Product): Promise<Product | Error> {
+  update(data): Promise<Product | Error> {
     const { id, ...updatedData } = data;
-    return this.appService.update(id, updatedData as Product);
+    return this.appService.update(id, updatedData.data);
   }
 
   @MessagePattern({ cmd: 'product_destroy' })

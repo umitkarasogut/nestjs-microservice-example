@@ -19,7 +19,7 @@ export class AppService {
   }
 
   update(id: string, data): Promise<Product | Error> {
-    return this.dbService.product.update({ where: { id }, ...data });
+    return this.dbService.product.update({ where: { id }, data });
   }
 
   destroy(id: string) {
