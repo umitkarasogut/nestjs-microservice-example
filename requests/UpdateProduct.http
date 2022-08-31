@@ -1,0 +1,8 @@
+PUT http://localhost:5000/product/68d7e6fe-97e8-4691-aaca-a88edef0eef1
+Content-Type: application/json
+
+{
+    "name": "new Example Product name",
+    "price": "200",
+    "image": "new-example-imge-url"
+}
