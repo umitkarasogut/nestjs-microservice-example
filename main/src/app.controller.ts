@@ -15,7 +15,7 @@ import { ClientProxy } from '@nestjs/microservices';
 @Controller('product')
 export class AppController {
   constructor(
-    @Inject('MICROSERVICE')
+    @Inject('tcp-services')
     private readonly client: ClientProxy,
   ) {}
 

@@ -5,7 +5,7 @@ import { AppController } from './app.controller';
 @Module({
   imports: [
     ClientsModule.register([
-      { name: 'MICROSERVICE', transport: Transport.TCP },
+      { name: 'tcp-services', transport: Transport.TCP },
     ]),
   ],
   controllers: [AppController],
