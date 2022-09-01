@@ -16,35 +16,32 @@ describe('ProductServiceIntegration (e2e)', () => {
     await app.init();
   });
 
-  it('/product (GET)', () => {
-    return request(app.getHttpServer())
+  it('/product (GET)', () =>
+    request(app.getHttpServer())
       .get('/product')
       .expect(200)
       .expect((response) => {
         expect(response.body).toBeInstanceOf(Array);
         exampleProduct = response.body[0];
-      });
-  });
+      }));
 
-  it('/product/{id} (GET)', () => {
-    return request(app.getHttpServer())
+  it('/product/{id} (GET)', () =>
+    request(app.getHttpServer())
       .get(`/product/${exampleProduct.id}`)
       .expect(200)
       .expect((response) => {
         expect(response.body).toStrictEqual(exampleProduct);
-      });
-  });
+      }));
 
-  it('/product (POST)', () => {
-    return request(app.getHttpServer())
+  it('/product (POST)', () =>
+    request(app.getHttpServer())
       .post('/product')
       .send({
         name: 'e2e test product name',
         price: '100',
         image: 'test-url-image',
       })
-      .expect(201);
-  });
+      .expect(201));
 
   it('/product/{id} (PUT)', () => {
     const newCredentials = {
@@ -63,11 +60,10 @@ describe('ProductServiceIntegration (e2e)', () => {
       });
   });
 
-  it('/product/{id} (DELETE)', () => {
-    return request(app.getHttpServer())
+  it('/product/{id} (DELETE)', () =>
+    request(app.getHttpServer())
       .delete(`/product/${exampleProduct.id}`)
-      .expect(200);
-  });
+      .expect(200));
 
   afterAll((done) => {
     app.close();
